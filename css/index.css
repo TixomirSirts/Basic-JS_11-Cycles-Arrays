@@ -8,6 +8,38 @@ body {
   font-family: 'Courier New', Courier, monospace;
 }
 
+h1 {
+  padding-bottom: 1rem;
+  border-bottom: 3px double black;
+}
+
+h1::before, h1::after {
+  content: " ⚙️ ";
+  text-decoration: none;
+}
+
+h2 {
+  margin: 5px 0;
+  text-transform: capitalize;
+  text-decoration: underline;
+}
+
+p {
+  margin: 0;
+  text-transform: uppercase;
+}
+
+span {
+  display: block;
+  width: 120px;
+  border: 5px outset brown;
+  border-radius: 5px;
+  background-color: burlywood;
+  padding: 2px 0;
+  margin: 2px auto;
+  font-weight: bolder;
+}
+
 ul[class] {
   list-style: none;
 }
@@ -16,6 +48,19 @@ ul[class],
 li {
   margin: 0;
   padding: 0;
+}
+
+.panel__devtools {
+  margin: 5px auto;
+  border: 3px double black;
+}
+
+.panel__block {
+  border: 3px double black;
+  padding: 5px;
+  margin: 5px;
+  text-align: center;
+  background-color: azure;
 }
 
 button {
@@ -31,6 +76,13 @@ button {
   text-decoration: none;
   display: inline-block;
   max-width: fit-content;
+  cursor: pointer;
+}
+
+button:hover {
+  box-shadow: 5px;
+  visibility: 0.9;
+  background-color: #dc143c;
 }
 
 input {
@@ -45,6 +97,14 @@ input {
   background-color: #3cbc8d;
   color: white;
   max-width: 200px;
+}
+
+input:hover {
+  background-color: #3cbc8dcc;
+}
+
+input:focus {
+  background-color: #dc143c;
 }
 
 main {
@@ -76,11 +136,32 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin: auto 0;
 }
 
 .line {
-  margin-top: 10px;
+  margin: 5px;
 }
+
+.weight__inputs {
+  display: flex;
+  justify-content: space-between;
+}
+
+.weight__inputs input {
+  width: 120px;
+}
+
+.sorter__block {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.fruits-sorter p {
+  margin-bottom: 5px;
+}
+
+
 
 /* Список экзотических фруктов */
 .fruits__wrapper {
@@ -88,6 +169,12 @@ main {
   background: #fff;
   max-height: inherit;
   overflow: hidden;
+}
+
+h2.wrapper__title {
+  margin: 30px auto;
+  font-size: 30px;
+  text-decoration: underline double;
 }
 
 .fruits__list {
