@@ -32,10 +32,10 @@ p {
 span {
   display: block;
   width: 120px;
-  border: 5px outset brown;
+  border: 5px outset chocolate;
   border-radius: 5px;
   background-color: burlywood;
-  padding: 2px 0;
+  padding: 5px 0;
   margin: 2px auto;
   font-weight: bolder;
 }
@@ -70,12 +70,14 @@ button {
   color: white;
   font-size: 14px;
   font-family: 'Courier New', Courier, monospace;
+  text-transform: uppercase;
   padding: 10px 16px;
   border-radius: 10px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  max-width: fit-content;
+  width: 120px;
+  /* max-width: fit-content; */
   cursor: pointer;
 }
 
@@ -161,7 +163,19 @@ main {
   margin-bottom: 5px;
 }
 
+.add-fruit__prop {
+  display: flex;
+  justify-content: space-between;
+}
 
+.add-fruit__prop p {
+  margin: auto 0;
+  margin-right: 5px;
+}
+
+.add-fruit__input {
+  width: 240px;
+}
 
 /* Список экзотических фруктов */
 .fruits__wrapper {
@@ -212,6 +226,10 @@ h2.wrapper__title {
 
 .fruit_lightbrown {
   background: #cd853f;
+}
+
+.fruit_red {
+  background: red;
 }
 
 .fruit__info {

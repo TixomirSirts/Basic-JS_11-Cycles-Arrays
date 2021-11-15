@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="./css/index.css" />
-  <title>Ферма экзотических фруктов</title>
+  <title>Exotic fruit farm</title>
 </head>
 
 <body>
@@ -13,11 +13,11 @@
     <!-- ПАНЕЛЬ УПРАВЛЕНИЯ -->
     <section class="panel__wrapper">
       <div class="panel__devtools">
-        <h1 class="wrapper__title">Панель управления</h1>
+        <h1 class="wrapper__title">control panel</h1>
         <div class="panel__block fruits-shuffle">
           <h2>fruits shuffle</h2>
-          <!-- TODO: при нажатии элементы массива перемешиваются в случайном порядке -->
-          <button class="shuffle__btn line" id="btnShuffle">Перемешать</button>
+          <!-- При нажатии элементы массива перемешиваются в случайном порядке -->
+          <button class="shuffle__btn line" id="btnShuffle">shuffle</button>
         </div>
 
         <div class="panel__block weight-filter">
@@ -34,97 +34,97 @@
               <input class="maxweight__input" id="maxWeight">
             </div>
           </div>
-
-          <!-- TODO: при нажатии элементы массива фильтруются в пределах [minweight, maxweight] -->
-          <button class="filter__btn line" id="btnFilter">Фильтровать</button>
+          <!-- При нажатии элементы массива фильтруются в пределах [minweight, maxweight] -->
+          <button class="filter__btn line" id="btnFilter">filter</button>
         </div>
 
         <div class="panel__block fruits-sorter">
           <h2>fruits sorter</h2>
           <div class="sorter__block">
-            <div class="line">
-              <p>Алгоритм:</p>
-              <!-- TODO: указывается название алгоритма сортировки -->
-              <span class="sort__kind" id="btnSorterType"></span>
+            <div class="sorter__func">
+              <div class="line">
+                <p>algoritm:</p>
+                <!-- Указывает название алгоритма сортировки -->
+                <span class="sort__kind" id="btnSorterType"></span>
+              </div>
+              <!-- TПри нажатии происходит смена алгоритма сортировки -->
+              <button class="sort__change__btn line">switch</button>
             </div>
-            <div class="line">
-              <p>Время: </p>
-              <!-- TODO: выводится время сортировки -->
-              <span class="sort__time" id="timeField"></span>
+            <div class="sorter__func">
+              <div class="line">
+                <p>time: </p>
+                <!-- Вывод время сортировки -->
+                <span class="sort__time" id="timeField"></span>
+              </div>
+              <!-- При нажатии происходит сортировка и рассчет времени сортировки -->
+              <button class="sort__action__btn line">sort</button>
             </div>
-          </div>
-          <div class="sorter__block">
-            <!-- TODO: при нажатии происходит смена алгоритма сортировки -->
-            <button class="sort__change__btn line">Сменить алгоритм</button>
-            <!-- TODO: при нажатии происходит сортировка и рассчет времени сортировки -->
-            <button class="sort__action__btn line">Сортировать</button>
           </div>
         </div>
 
-        <div class="panel__block fruits-plus">
+        <div class="panel__block add-fruit">
           <h2>add fruit</h2>
-          <div class="line">
+          <div class="line add-fruit__prop">
             <p>kind:</p>
-            <input class="kind__input">
+            <input class="kind__input add-fruit__input">
           </div>
-          <div class="line">
+          <div class="line add-fruit__prop">
             <p>color:</p>
-            <input class="color__input">
+            <input class="color__input add-fruit__input">
           </div>
-          <div class="line">
+          <div class="line add-fruit__prop">
             <p>weight:</p>
-            <input class="weight__input">
+            <input class="weight__input add-fruit__input">
           </div>
-          <!-- TODO: при нажатии новый фрукт добавляется в конец списка -->
-          <button class="add__action__btn line">Добавить фрукт</button>
+          <!-- При нажатии новый фрукт добавляется в конец списка -->
+          <button class="add__action__btn line">add</button>
         </div>
-        <!-- пользователь указывает значения характеристик будущего фрукта -->
       </div>
     </section>
 
     <!-- СПИСОК ЭКЗОТИЧЕСКИХ ФРУКТОВ -->
     <section class="fruits__wrapper">
-      <h2 class="wrapper__title">Список экзотических фруктов</h2>
-      <!-- TODO: формировать список динамически (то есть закоментированный код удалить) -->
+      <h2 class="wrapper__title">list of exotic fruits</h2>
+      <!-- Список фруктов формирует динамически -->
       <ul class="fruits__list">
         <li class="fruit__item fruit_violet">
           <div class="fruit__info">
-            <div>index: 0</div>
-            <div>kind: Мангустин</div>
-            <div>color: фиолетовый</div>
-            <div>weight (кг): 13</div>
+            <p>index: 0</p>
+            <p>kind: Мангустин</p>
+            <p>color: фиолетовый</p>
+            <p>weight (кг): 13</p>
           </div>
         </li>
         <li class="fruit__item fruit_green">
           <div class="fruit__info">
-            <div>index: 1</div>
-            <div>kind: Дуриан</div>
-            <div>color: зеленый</div>
-            <div>weight (кг): 35</div>
+            <p>index: 1</p>
+            <p>kind: Дуриан</p>
+            <p>color: зеленый</p>
+            <p>weight (кг): 35</p>
           </div>
         </li>
         <li class="fruit__item fruit_carmazin">
           <div class="fruit__info">
-            <div>index: 2</div>
-            <div>kind: Личи</div>
-            <div>color: розово-красный</div>
-            <div>weight (кг): 17</div>
+            <p>index: 2</p>
+            <p>kind: Личи</p>
+            <p>color: розово-красный</p>
+            <p>weight (кг): 17</p>
           </div>
         </li>
         <li class="fruit__item fruit_yellow">
           <div class="fruit__info">
-            <div>index: 3</div>
-            <div>kind: Карамбола</div>
-            <div>color: Желтый</div>
-            <div>weight (кг): 28</div>
+            <p>index: 3</p>
+            <p>kind: Карамбола</p>
+            <p>color: желтый</p>
+            <p>weight (кг): 28</p>
           </div>
         </li>
         <li class="fruit__item fruit_lightbrown">
           <div class="fruit__info">
-            <div>index: 4</div>
-            <div>kind: Тамаринд</div>
-            <div>color: светло-коричневый</div>
-            <div>weight (кг): 22</div>
+            <p>index: 4</p>
+            <p>kind: Тамаринд</p>
+            <p>color: светло-коричневый</p>
+            <p>weight (кг): 22</p>
           </div>
         </li>
       </ul>

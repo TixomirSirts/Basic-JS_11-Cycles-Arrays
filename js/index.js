@@ -1,4 +1,3 @@
-// элементы в DOM можно получить при помощи функции querySelector
 const fruitsList = document.querySelector('.fruits__list'); // список карточек
 const shuffleButton = document.querySelector('.shuffle__btn'); // кнопка перемешивания
 const filterButton = document.querySelector('.filter__btn'); // кнопка фильтрации
@@ -11,7 +10,6 @@ const colorInput = document.querySelector('.color__input'); // поле с на�
 const weightInput = document.querySelector('.weight__input'); // поле с весом
 const addActionButton = document.querySelector('.add__action__btn'); // кнопка добавления
 
-// список фруктов в JSON формате
 let fruitsJSON = `[
   {"kind": "Мангустин", "color": "фиолетовый", "weight": 13},
   {"kind": "Дуриан", "color": "зеленый", "weight": 35},
@@ -20,25 +18,72 @@ let fruitsJSON = `[
   {"kind": "Тамаринд", "color": "светло-коричневый", "weight": 22}
 ]`;
 
-// преобразование JSON в объект JavaScript
 let fruits = JSON.parse(fruitsJSON);
 
-/*** ОТОБРАЖЕНИЕ ***/
-
-// отрисовка карточек
 const display = () => {
-  
+  // console.log(fruitsList, fruitsList.children);
+  for (let i = (fruitsList.children.length - 1); i >= 0; i--) {
+    // Удаление элементов со страницы 3 способами (ссылка на источник: http://shpargalkablog.ru/2013/08/appendchild-removechild-javascript.html)
+    // Способ удаления № 1
+    fruitsList.children[i].parentNode.removeChild(fruitsList.children[i]);
+    // Способ удаления № 2
+    // fruitsList.children[i].remove();
+    // Способ удаления № 3
+    // fruitsList.children[i].outerHTML = '';
 
-  // TODO: очищаем fruitsList от вложенных элементов,
-  // чтобы заполнить актуальными данными из fruits
-
+    // Страховка от бесконечного цикла
+    // if (i > 10 || i < -10) {
+    //   console.log('break');
+    //   break
+    // }
+  }
   for (let i = 0; i < fruits.length; i++) {
-    // TODO: формируем новый элемент <li> при помощи document.createElement,
-    // и добавляем в конец списка fruitsList при помощи document.appendChild
+    const text = `<li class="fruit__item" id="fruit_${i}">
+    <div class="fruit__info">
+      <p>index: ${i}</p>
+      <p>kind: ${fruits[i].kind}</p>
+      <p>color: ${fruits[i].color}</p>
+      <p>weight (кг): ${fruits[i].weight}</p>
+    </div>
+  </li>`;
+    // Способы создания элементов на странице:
+    // Способ № 1
+    // Узнать почему не получается вставить элемент на страницу с помощью insertBefore
+    // let fruitsListItem = document.createElement('li').innerHTML = text;
+    // document.body.insertBefore(fruitsListItem, fruitsList);
+    //  Способ № 2
+    fruitsList.insertAdjacentHTML('beforeend', text);
+    // Установка цвета для элементов списка
+    let fruitsListItem = document.getElementById(`fruit_${i}`);
+    let colorClass = findColorClass(`${fruits[i].color}`);
+    fruitsListItem.classList.add(`${colorClass}`);
   }
 };
 
-// первая отрисовка карточек
+function findColorClass(colorName) {
+  let colorClassName;
+  switch (colorName) {
+    case 'фиолетовый':
+      colorClassName = 'fruit_violet';
+      break;
+    case 'зеленый':
+      colorClassName = 'fruit_green';
+      break;
+    case 'розово-красный':
+      colorClassName = 'fruit_carmazin';
+      break;
+    case 'желтый':
+      colorClassName = 'fruit_yellow';
+      break;
+    case 'светло-коричневый':
+      colorClassName = 'fruit_lightbrown';
+      break;
+    default:
+      colorClassName = 'fruit_red';
+  }
+  return colorClassName
+}
+
 display();
 
 /*** ПЕРЕМЕШИВАНИЕ ***/
