@@ -21,7 +21,6 @@ let fruitsJSON = `[
 let fruits = JSON.parse(fruitsJSON);
 
 const display = () => {
-  // console.log(fruitsList, fruitsList.children);
   for (let i = (fruitsList.children.length - 1); i >= 0; i--) {
     // Удаление элементов со страницы 3 способами (ссылка на источник: http://shpargalkablog.ru/2013/08/appendchild-removechild-javascript.html)
     // Способ удаления № 1
@@ -86,27 +85,40 @@ function findColorClass(colorName) {
 
 display();
 
-/*** ПЕРЕМЕШИВАНИЕ ***/
-
-// генерация случайного числа в заданном диапазоне
-const getRandomInt = (min, max) => {
+const getRandomInt = (min = 0, max = 10) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
-// перемешивание массива
 const shuffleFruits = () => {
-  let result = [];
-
-  // ATTENTION: сейчас при клике вы запустите бесконечный цикл и браузер зависнет
-  while (fruits.length > 0) {
-    // TODO: допишите функцию перемешивания массива
-    //
-    // Подсказка: находим случайный элемент из fruits, используя getRandomInt
-    // вырезаем его из fruits и вставляем в result.
-    // ex.: [1, 2, 3], [] => [1, 3], [2] => [3], [2, 1] => [], [2, 1, 3]
-    // (массив fruits будет уменьшатся, а result заполняться)
+  function getFruitsList(arr) {
+    let fruitsList = [];
+    arr.forEach(el => {
+      let kind = el.kind;
+      fruitsList.push(kind);
+    });
+    return fruitsList
   }
-
+  function isEqual(arr1, arr2) {
+    let compareArr = [];
+    for (let i = 0; i < arr1.length || i < arr2.length; i++) {
+      compareArr.push((arr1[i] == arr2[i]));
+    }
+    let equal = (compareArr.includes(true) && compareArr.every(el => el == true));
+    return equal
+  }
+  let startFruitsList = getFruitsList(fruits);
+  let result = [];
+  while (fruits.length > 0) {
+    let randomInt = getRandomInt(0, fruits.length);
+    let randomFruit = fruits.slice((randomInt - 1), randomInt);
+    if ((randomInt - 1) >= 0) {
+      let item = randomFruit[0];
+      result.push(item);
+      fruits.splice((randomInt - 1), 1, );
+    }
+  }
+  let endFruitsList = getFruitsList(result);
+  if (isEqual(startFruitsList, endFruitsList)) alert('Перемешивания списка фруктов не произошло.');
   fruits = result;
 };
 
