@@ -88,7 +88,7 @@ button:hover {
 }
 
 input {
-  margin: 5px 10px 5px 0;
+  margin: 5px 0;
   border: 0;
   padding: 0 10px;
   line-height: 36px;
@@ -148,6 +148,10 @@ main {
 .weight__inputs {
   display: flex;
   justify-content: space-between;
+}
+
+.weight__inputs input {
+  text-align: center;
 }
 
 .weight__inputs input {

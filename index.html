@@ -26,16 +26,19 @@
             <div class="line">
               <!-- пользователь указывает нижнюю границу weight -->
               <p>min:</p>
-              <input class="minweight__input" id="minWeight">
+              <input class="minweight__input" id="minWeight" value="0">
             </div>
             <div class="line">
               <!-- пользователь указывает верхнюю границу weight -->
               <p>max:</p>
-              <input class="maxweight__input" id="maxWeight">
+              <input class="maxweight__input" id="maxWeight" value="100">
             </div>
           </div>
           <!-- При нажатии элементы массива фильтруются в пределах [minweight, maxweight] -->
-          <button class="filter__btn line" id="btnFilter">filter</button>
+          <div class="weight__inputs">
+            <button class="filter__btn line" id="btnClear">clear</button>
+            <button class="filter__btn line" id="btnFilter">filter</button>
+          </div>
         </div>
 
         <div class="panel__block fruits-sorter">
